@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const pageTitle = "About Me";
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const colorPurple = "purple";
+---
+
+<Layout title="Welcome to Astro." description="Astro description now a param">
+	<main>
+		<h1>{pageTitle}</h1>
+		<p class="instructions">This is an about page.</p>
+		<p>My skills are:</p>
+		<ul>
+			{skills.map((skill) => <li>{skill}</li>)}
+		</ul>
+
+		{happy && <p>I am happy to be learning Astro!</p>}
+
+		{finished && <p>I finished this tutorial!</p>}
+
+		{
+			goal === 3 ? (
+				<p>My goal is to finish in 3 days.</p>
+			) : (
+				<p>My goal is not 3 days.</p>
+			)
+		}
+	</main>
+</Layout>
+
+<style define:vars={{colorPurple}}>
+	/* main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	} */
+</style>
